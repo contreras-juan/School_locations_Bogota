@@ -60,34 +60,27 @@ tab direccion1
 /*
 	Eliminar barrio y caracteres subsiguientes
 */
-forvalues i=1(1)18{
+forvalues i=1(1)17{
 
 	dis "ronda `i'"
-	local f=`i'+1
-	replace direccion`f'="" if direccion`i'=="BARRIO"
-	local j=`i'+2
-	capture replace direccion`f'="" if direccion`i'=="BARRIO"
-	local m=`i'+3
-	capture replace direccion`m'="" if direccion`i'=="BARRIO"
-	local n=`i'+4
-	capture replace direccion`n'="" if direccion`i'=="BARRIO"
-	local s=`i'+5
-	capture replace direccion`s'="" if direccion`i'=="BARRIO" 
+	local f = `i' + 1
+	
+	forvalues j = `f'(1)18{
+		replace direccion`j'="" if direccion`i'=="BARRIO"
+	}
+	
 	replace direccion`i'="" if direccion`i'=="BARRIO"
 }
 
-forvalues i=1(1)18{
+
+forvalues i=1(1)17{
 
 	dis "ronda `i'"
-	local f=`i'+1
-	replace direccion`f'="" if direccion`i'=="BR"
-	local j=`i'+2
-	capture replace direccion`f'="" if direccion`i'=="BR"
-	local m=`i'+3
-	capture replace direccion`m'="" if direccion`i'=="BR"
-	local n=`i'+4
-	capture replace direccion`n'="" if direccion`i'=="BR"
-	local s=`i'+5
-	capture replace direccion`s'="" if direccion`i'=="BR" 
+	local f = `i' + 1
+	
+	forvalues j = `f'(1)18{
+		replace direccion`j'="" if direccion`i'=="BR"
+	}
+	
 	replace direccion`i'="" if direccion`i'=="BR"
 }
